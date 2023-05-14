@@ -37,7 +37,7 @@ class PostController extends Controller
             'description'=>'string|required',
             'price'=>'required|max:10',
             'category_id'=>'required|max:10',
-            'image'=>'string|required',
+            'image'=>'image|required',
         ]);
         $post=new Post();
 //        dd($request);
@@ -95,7 +95,7 @@ class PostController extends Controller
             'description'=>'string|required',
             'price'=>'required|max:10',
             'category_id'=>'required|max:10',
-            'image'=>'string|required',
+            'image'=>'image|required',
         ]);
 
         $user= auth()->user()->name;
