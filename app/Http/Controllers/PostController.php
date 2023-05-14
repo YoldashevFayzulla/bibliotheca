@@ -104,12 +104,12 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         $post->delete();
-        return redirect()->back()->with('session','deleted');
+        return redirect()->back()->with('success','deleted');
     }
 
     public function search(){
         $search_text = $_GET['query'];
-        $posts=Post::where('name','Like','%'.$search_text.'%')->get();
+        $posts=Post::where('name','Like','%'.$search_text.'%')->paginate();
         return  view('admin.posts.index',compact('posts'));
     }
 }

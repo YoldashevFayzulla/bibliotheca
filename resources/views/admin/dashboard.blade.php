@@ -37,4 +37,32 @@
             </div>
         </div>
     </div>
+
+    <script>
+        @if(session('session'))
+        Swal.fire({
+            title: 'success',
+            icon: 'success',
+            showCancelButton: false,
+            timer: 2000
+        })
+        @endif
+        function delete_button() {
+            Swal.fire({
+                title: 'o`chirish?',
+                text: "o`chirilgan narsa qayta tiklanmaydi",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Xa o`chirilsin!'
+            }).then((result) => {
+                    if (result.isConfirmed) {
+                        document.getElementById('form-delete').submit();
+                    }
+                }
+            )
+        }
+    </script>
+
 </x-app-layout>
