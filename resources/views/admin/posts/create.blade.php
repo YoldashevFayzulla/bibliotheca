@@ -8,6 +8,17 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-DARK">
+                    <h1 class="text-white">Create Post</h1>
+
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <form action="{{route('post.store')}}" method="post" enctype="multipart/form-data">
                         @csrf
                         <input type="text" name="name" placeholder="name" class="form-control m-3 center">

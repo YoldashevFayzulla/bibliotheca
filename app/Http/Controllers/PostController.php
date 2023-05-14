@@ -31,6 +31,14 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+
+        $request->validate([
+            'name'=>'string|required',
+            'description'=>'string|required',
+            'price'=>'required|max:10',
+            'category_id'=>'required|max:10',
+            'image'=>'string|required',
+        ]);
         $post=new Post();
 //        dd($request);
         if($request->hasfile('image')){
@@ -82,6 +90,14 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
+        $request->validate([
+            'name'=>'string|required',
+            'description'=>'string|required',
+            'price'=>'required|max:10',
+            'category_id'=>'required|max:10',
+            'image'=>'string|required',
+        ]);
+
         $user= auth()->user()->name;
         if($request->hasfile('thumbnail')){
             $file= $request->file('thumbnail');

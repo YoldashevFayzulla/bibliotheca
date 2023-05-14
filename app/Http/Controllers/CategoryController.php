@@ -30,6 +30,9 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+           'name'=>'string|required',
+        ]);
         Category::create($request->all());
         return redirect()->route('category.index')->with('session','muofaqiyatliy qo`shildi');
     }
@@ -57,6 +60,11 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
+
+        $request->validate([
+            'name'=>'string|required',
+        ]);
+
         $category->update($request->all());
         return redirect()->route('category.index')->with('session','malumot o`zgartirildi');
     }
