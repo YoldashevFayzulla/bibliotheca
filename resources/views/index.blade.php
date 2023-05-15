@@ -67,7 +67,7 @@
 <div class="services_section layout_padding">
     <div class="container">
         <h1 class="services_taital"> Kitoblar </h1>
-        <p class="services_text"> Bizda istalgan turdagi istalgan kitobni topishingiz mumkun</p>
+        <p class="services_text"> Bizda istalgan turdagi istalgan kitobni topishingiz mumkun </p>
         <div class="services_section_2">
             <div class="row">
                 @if(!empty($posts))
@@ -110,21 +110,38 @@
                 <h1 class="modal-title fs-5" id="exampleModalLabel">New message</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <div class="modal-body">
-                <form>
-                    <div class="mb-3">
-                        <label for="recipient-name" class="col-form-label">Recipient:</label>
-                        <input type="text" class="form-control" id="recipient-name">
-                    </div>
-                    <div class="mb-3">
+                <form action="{{route('store')}}" method="get">
+                    @csrf
+{{--                    <div class="mb-3">--}}
+                        <label for="recipient-name" class="col-form-label">Your full name:</label>
+                        <input type="text" class="form-control"  name="name" id="recipient-name" required>
+                    <label for="recipient-name" class="col-form-label">must be string:</label>
+                    <br>
+                    <label for="recipient-name" class="col-form-label">number:</label>
+                    <input type="text" class="form-control"  name="number" required id="erecipient-name">
+                    <label for="recipient-name" class="col-form-label">must be 9 number and more:</label><br>
+
+                    {{--                    </div>--}}
+{{--                    <div class="mb-3">--}}
                         <label for="message-text" class="col-form-label">Message:</label>
-                        <textarea class="form-control" id="message-text"></textarea>
-                    </div>
+                        <textarea class="form-control" id="message-text" name="massage" required></textarea>
+
+                        <button type="submit" class="btn btn-primary float-right">Send message</button>
+{{--                    </div>--}}
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Send message</button>
             </div>
         </div>
     </div>
@@ -155,10 +172,19 @@
 </div>
 
 
-
-
+<script>
+        @if(session('success'))
+            Swal.fire({
+            title: 'success',
+            icon: 'success',
+            showCancelButton: false,
+            timer: 2000
+    })
+    @endif
+</script>
 
 {{--js--}}
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
 </html>
