@@ -20,6 +20,11 @@
                         {{ __('books') }}
                     </x-nav-link>
                 </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('contact')" :active="request()->routeIs('extra.extra')">
+                        {{ __('contact') }}
+                    </x-nav-link>
+                </div>
             </div>
 
             <!-- Settings Dropdown -->
@@ -101,4 +106,6 @@
             </div>
         </div>
     </div>
+
+
 </nav>

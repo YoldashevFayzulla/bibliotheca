@@ -40,7 +40,7 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Category $category)
+    public function show()
     {
         $categories=Category::all();
         $posts=Post::all();

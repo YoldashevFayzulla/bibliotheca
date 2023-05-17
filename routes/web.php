@@ -25,12 +25,14 @@ Route::get('/dashboard', [CategoryController::class,'index'])->middleware(['auth
 Route::get('menu/{category?}',[PostController::class,'show'])->name('category');
 Route::get('searchA',[CategoryController::class,'search']);
 Route::get('info/{id}',[ExtraController::class,'info'])->name('info');
-Route::get('store',[ExtraController::class,'store'])->name('store');
+Route::post('store',[ExtraController::class,'store'])->name('contact.store');
 
 Route::middleware('auth')->group(function (){
     Route::resource('category',CategoryController::class);
     Route::resource('post',PostController::class);
     Route::get('search' ,[PostController::class,'search']);
+    Route::get('contact' ,[ExtraController::class,'extra'])->name('contact');
+    Route::delete('contact/delete/{id}' ,[ExtraController::class,'destroy'])->name('contact.delete');
 });
 
 Route::middleware('auth')->group(function () {

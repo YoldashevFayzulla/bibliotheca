@@ -23,6 +23,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <!-- style css -->
     <link rel="stylesheet" type="text/css" href="{{asset('asset/css/style.css')}}">
+    {{-- js --}}
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 
 <body>
@@ -84,13 +88,14 @@
     </div>
 </div>
 
+
+
+
 <!-- services section end -->
-<!-- footer section start -->
+<!-- footer section start     footer -->
 <div class="footer_section layout_padding">
     <div class="container">
-{{--        <div class="location_main">--}}
-{{--            <div class="call_text"><img src="{{asset('asset/images/mail-icon.png')}}"></div>--}}
-{{--        </div>--}}
+
         <div class="social_icon">
             <ul>
                 <li><a type="button"class="m-2" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-envelope-fill bg-light" viewBox="0 0 16 16">
@@ -102,7 +107,41 @@
         </div>
     </div>
 </div>
-{{--modal for iconcs--}}
+
+
+{{--ALL JS AND BOOTSTRAP ACTIONS--}}
+{{--    <div class="alert alert-danger">--}}
+{{--        <ul>--}}
+{{--                <li>{{ $error }}</li>--}}
+{{--        </ul>--}}
+{{--    </div>--}}
+<script>
+    @if(session('success'))
+    Swal.fire({
+        title: 'success',
+        icon: 'success',
+        showCancelButton: false,
+        timer: 2000
+    })
+    @endif
+
+    @if ($errors->any())
+    Swal.fire({
+        icon: 'error',
+        @foreach($errors->all() as $error)
+
+        text: '{{$error}}',
+
+        @endforeach
+        showCancelButton: false,
+        timer: 2000
+    })
+    @endif
+
+</script>
+
+
+{{--modal for contact--}}
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -110,34 +149,22 @@
                 <h1 class="modal-title fs-5" id="exampleModalLabel">New message</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
             <div class="modal-body">
-                <form action="{{route('store')}}" method="get">
+                <form action="{{route('contact.store')}}" method="post">
                     @csrf
-{{--                    <div class="mb-3">--}}
-                        <label for="recipient-name" class="col-form-label">Your full name:</label>
-                        <input type="text" class="form-control"  name="name" id="recipient-name" required>
-                    <label for="recipient-name" class="col-form-label">must be string:</label>
-                    <br>
-                    <label for="recipient-name" class="col-form-label">number:</label>
-                    <input type="text" class="form-control"  name="number" required id="erecipient-name">
-                    <label for="recipient-name" class="col-form-label">must be 9 number and more:</label><br>
-
-                    {{--                    </div>--}}
-{{--                    <div class="mb-3">--}}
-                        <label for="message-text" class="col-form-label">Message:</label>
-                        <textarea class="form-control" id="message-text" name="massage" required></textarea>
-
-                        <button type="submit" class="btn btn-primary float-right">Send message</button>
-{{--                    </div>--}}
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Full Name:</label>
+                        <input type="text" class="form-control" name="name" id="recipient-name" >
+                    </div>
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Number:</label>
+                        <input type="text" class="form-control" name="number" id="recipient-name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="message-text" class="col-form-label" >Message:</label>
+                        <textarea class="form-control" id="message-text" name="massage" ></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary float-right">Send message</button>
                 </form>
             </div>
             <div class="modal-footer">
@@ -147,44 +174,14 @@
     </div>
 </div>
 
-
-{{--<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">--}}
-{{--    Launch static backdrop modal--}}
-{{--</button>--}}
-
 <!-- Modal for cards -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                ...
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Understood</button>
-            </div>
-        </div>
-    </div>
-</div>
 
 
-<script>
-        @if(session('success'))
-            Swal.fire({
-            title: 'success',
-            icon: 'success',
-            showCancelButton: false,
-            timer: 2000
-    })
-    @endif
-</script>
 
 {{--js--}}
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
 </html>

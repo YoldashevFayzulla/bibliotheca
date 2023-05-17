@@ -20,7 +20,7 @@
                         </div>
                     @endif
                     <form action="{{route('category.store')}}" method="post">
-@csrf
+                        @csrf
                         <input type="text" name="name" placeholder="name" class="form-control m-2 center">
                         <button type="submit" class="btn btn-outline-warning m-3 float-end">save</button>
 

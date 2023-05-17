@@ -16,11 +16,24 @@ class ExtraController extends Controller
 
     public function store(Request $request){
         $request->validate([
-            'name'=>'string|required',
-            'number'=>'required ',
-            'massage'=>'string|required',
+            'name'=>'required|string',
+            'number'=>'required|numeric|min:9',
+            'massage'=>'required'
+        ],[
+            'name'=>'ismingizni kiriting',
+            'number'=>'9 xonali son bolishi kerak',
+            'massage'=>'xabar toldirilgan bolishi kerak'
         ]);
         Contact::create($request->all());
         return redirect()->back()->with('success','success');
+    }
+    public function extra(){
+        $contacts=Contact::all();
+        return view('admin.contact.index',compact('contacts'));
+    }
+    public function destroy(Contact $id){
+//        dd($id);
+        $id->delete();
+        return redirect()->back()->with('success','deleted');
     }
 }
