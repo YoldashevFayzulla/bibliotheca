@@ -24,6 +24,7 @@
                         <th>name</th>
                         <th>number</th>
                         <th>massage</th>
+                        <th>book</th>
                         <th>action</th>
                     </tr>
                     @foreach($contacts as $contact)
@@ -32,6 +33,7 @@
                         <th>{{$contact->name}}</th>
                         <th>{{$contact->number}}</th>
                         <th>{{$contact->massage}}</th>
+                        <th>{{$contact->post->name}}</th>
                         <th>
                             <form action="{{route('contact.delete',$contact->id)}}" method="post">
                                 @csrf

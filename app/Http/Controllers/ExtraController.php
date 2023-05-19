@@ -18,7 +18,7 @@ class ExtraController extends Controller
 //        dd($request);
         $request->validate([
             'name'=>'required|string',
-            'number'=>'required|numeric|min:9',
+            'number'=>'required|numeric',
             'massage'=>'required'
         ],[
             'name'=>"ismingizni kiriting",
