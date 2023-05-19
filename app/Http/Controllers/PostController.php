@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class PostController extends Controller
 {
@@ -65,6 +66,7 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      */
+
     public function show(Category $category)
     {
 //        dd('salom');
@@ -88,6 +90,7 @@ class PostController extends Controller
     /**
      * Update the specified resource in storage.
      */
+
     public function update(Request $request, Post $post)
     {
         $request->validate([
@@ -109,7 +112,6 @@ class PostController extends Controller
             $post['category_id']=$request->category_id;
             $post['image']=$filename;
         }
-
         $post->update();
         return redirect()->route('post.index')->with('success','muofaqiyaatli saqlandi');
     }
@@ -117,6 +119,7 @@ class PostController extends Controller
     /**
      * Remove the specified resource from storage.
      */
+
     public function destroy(Post $post)
     {
         $post->delete();

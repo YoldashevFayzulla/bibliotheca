@@ -20,10 +20,11 @@ class ExtraController extends Controller
             'number'=>'required|numeric|min:9',
             'massage'=>'required'
         ],[
-            'name'=>'ismingizni kiriting',
-            'number'=>'9 xonali son bolishi kerak',
-            'massage'=>'xabar toldirilgan bolishi kerak'
+            'name'=>"ismingizni kiriting",
+            'number'=>"9 xonali son bolishi kerak",
+            'massage'=>"xabar toldirilgan bolishi kerak"
         ]);
+
         Contact::create($request->all());
         return redirect()->back()->with('success','success');
     }
