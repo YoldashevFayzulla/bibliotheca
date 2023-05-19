@@ -15,6 +15,7 @@ class ExtraController extends Controller
     }
 
     public function store(Request $request){
+//        dd($request);
         $request->validate([
             'name'=>'required|string',
             'number'=>'required|numeric|min:9',
@@ -25,7 +26,13 @@ class ExtraController extends Controller
             'massage'=>"xabar toldirilgan bolishi kerak"
         ]);
 
-        Contact::create($request->all());
+        Contact::create([
+            'name'=>$request->name,
+            'number'=>$request->number,
+            'massage'=>$request->massage,
+            'book_id'=>$request->id,
+
+        ]);
         return redirect()->back()->with('success','success');
     }
     public function extra(){
