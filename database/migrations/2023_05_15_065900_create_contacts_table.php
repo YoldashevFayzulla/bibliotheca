@@ -16,10 +16,10 @@ return new class extends Migration
             $table->string('name');
             $table->integer('number');
             $table->string('massage');
+            $table->foreignId('book_id')->default(0);
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      */

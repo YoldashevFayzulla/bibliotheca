@@ -81,7 +81,7 @@
                 @if(!empty($posts))
                     @foreach($posts as $post)
                         <div class="col-md-4">
-                            <div><img src="/image/{{$post->image}}" class="services_img"></div>
+                            <div><img src="/image/{{$post->image}}"  class="services_img"></div>
                             <h2>{{$post->name}}</h2>
                             <div class="btn_main">
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter{{$post->id}}">
@@ -94,17 +94,17 @@
                             <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
+                                        <div><img src="/image/{{$post->image}}"  class="services_img"></div>
                                     </div>
                                     <div class="modal-body">
-                                        {{$post->id}}
+                                        <h2>{{$post->name}}</h2>
+                                        <p>{{$post->description}}</p>
                                     </div>
+                                        <p class="text-gray-900 text-right">{{$post->price}} so`m</p>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary">Save changes</button>
+{{--                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>--}}
+                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                                data-bs-whatever="@mdo">buy</button>
                                     </div>
                                 </div>
                             </div>
@@ -115,29 +115,6 @@
         </div>
     </div>
 </div>
-
-
-<!-- services section end -->
-
-
-{{--ALL JS AND BOOTSTRAP ACTIONS--}}
-{{--    <div class="alert alert-danger">--}}
-{{--        <ul>--}}
-{{--                <li>{{ $error }}</li>--}}
-{{--        </ul>--}}
-{{--    </div>--}}
-
-{{--<script>--}}
-{{--let errors = @json($errors->all());--}}
-{{--@if($errors->any())--}}
-{{--    let msg = '';--}}
-{{--    for (let i = 0; i < errors.length; i++) {--}}
-{{--    msg += (i + 1) + '-xatolik ' + errors[i] + '\n';--}}
-{{--    }--}}
-{{--@endif--}}
-{{--</script>--}}
-
-
 
 {{--modal for contact--}}
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -172,7 +149,7 @@
     </div>
 </div>
 
-<!-- footer section start     footer -->
+<!-- footer section start footer -->
 <div class="footer_section layout_padding">
     <div class="container">
         <div class="social_icon">
