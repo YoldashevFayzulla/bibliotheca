@@ -206,20 +206,18 @@
 </div>
 
 {{--<!-- footer section start footer -->--}}
-{{--<div class="footer_section layout_padding">--}}
+<div class="footer_section layout_padding">
 {{--    <div class="container">--}}
-{{--        <div class="social_icon">--}}
-{{--            <ul>--}}
-{{--                <li><a type="button" class="m-2" data-bs-toggle="modal" data-bs-target="#exampleModal"--}}
-{{--                       data-bs-whatever="@mdo"><i class="fab fa-envelope"></i></a></li>--}}
-{{--                --}}{{--                <li><i class="fab fa-envelope"></i></li>--}}
-{{--                <li><a type="button" href="https://t.me/Fayzulla Yoldashev"><i class="fab fa-telegram"></i></a></li>--}}
-{{--                <li><a type="button" href="https://www.instagram.com/fayzullayoldashev/"><i--}}
-{{--                                class="fab fa-instagram"></i></a></li>--}}
-{{--            </ul>--}}
+        <div class="social_icon">
+            <ul>
+                <li><a type="button" class="m-2" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                       data-bs-whatever="@mdo"><img src="icons/icons8-comment-50.png" alt=""></a></li>
+                <li><a type="button" href="https://t.me/Fayzulla Yoldashev"><img src="icons/icons8-telegram-48.png" alt=""></a></li>
+                <li><a  href="https://www.instagram.com/fayzullayoldashev/"><img src="icons/instagram.png" alt="rasm"></a></li>
+            </ul>
 {{--        </div>--}}
-{{--    </div>--}}
-{{--</div>--}}
+    </div>
+</div>
 
 
 {{--js--}}
