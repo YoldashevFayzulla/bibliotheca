@@ -48,17 +48,7 @@
                 <nav class="navbar">
                     <div class="container-fluid">
                         <a class="navbar-brand"></a>
-                        <form class="d-flex" role="search" type="get" action="{{ url('/searchA') }}">
-                            <input class="form-control me-2" type="search" name="query" placeholder="Search" aria-label="Search">
-{{--                            <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus atque cum debitis ducimus eius eos esse explicabo id illum laborum maiores porro, quidem ratione recusandae rerum temporibus unde voluptate!</h1>--}}
-                            <button class="btn btn-outline-success" type="submit">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                     class="bi bi-search" viewBox="0 0 16 16">
-                                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                                </svg>
-                            </button>
-
-                        </form>
+                        {{--<h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi harum libero nostrum possimus ratione repellat reprehenderit vel voluptas. Aliquid amet consequatur dolorem ipsum libero, officia suscipit. Accusantium, ipsam quo. Quaerat?</h1>--}}
                     </div>
                 </nav>
                 <ul>
@@ -66,6 +56,15 @@
                         <li class="active"><a href="{{route('category',$category->id)}}">{{$category->name}}</a></li>
                     @endforeach
                 </ul>
+                <br><br>
+                <tr>
+                    <form class="d-flex float-end   " role="search" type="get" action="{{ url('/searchA') }}">
+                        <input class="me-2" type="search" name= "query" placeholder="Search" aria-label="Search" >
+                        <button class="btn btn-outline-success" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                            </svg></button>
+                    </form>
+                </tr>
             </div>
         </div>
     </div>
@@ -81,41 +80,47 @@
                 @if(!empty($posts))
                     @foreach($posts as $post)
                         <div class="col-md-4">
-                            <div><img src="/image/{{$post->image}}"  class="services_img"></div>
+                            <div><img src="/image/{{$post->image}}" class="services_img"></div>
                             <h2>{{$post->name}}</h2>
                             <div class="btn_main">
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter{{$post->id}}">
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModalCenter{{$post->id}}">
                                     Launch demo modal
                                 </button>
                             </div>
                         </div>
                         <!-- Modal -->
-                        <div class="modal fade" id="exampleModalCenter{{$post->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal fade" id="exampleModalCenter{{$post->id}}" tabindex="-1" role="dialog"
+                             aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <div><img src="/image/{{$post->image}}"  class="services_img"></div>
+                                        <div><img src="/image/{{$post->image}}" class="services_img"></div>
                                     </div>
                                     <div class="modal-body">
                                         <h2>{{$post->name}}</h2>
                                         <p>{{$post->description}}</p>
                                     </div>
-                                        <p class="text-gray-900 text-right">{{$post->price}} so`m</p>
+                                    <p class="text-gray-900 text-right">{{$post->price}} so`m</p>
                                     <div class="modal-footer">
-{{--                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>--}}
-                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#example{{$post->id}}"
-                                                data-bs-whatever="@mdo">buy</button>
+                                        {{--                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>--}}
+                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                                data-bs-target="#example{{$post->id}}"
+                                                data-bs-whatever="@mdo">buy
+                                        </button>
                                     </div>
                                 </div>
                             </div>
                         </div>
-{{--                     for buy--}}
-                        <div class="modal fade" id="example{{$post->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        {{--                     for buy--}}
+                        <div class="modal fade" id="example{{$post->id}}" tabindex="-1"
+                             aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h1 class="modal-title fs-5" id="exampleModalLabel">purchase</h1>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
                                         <form action="{{route('contact.store')}}" method="post">
@@ -128,17 +133,21 @@
                                             </div>
                                             <div class="mb-3">
                                                 <label for="recipient-name" class="col-form-label">Number:</label>
-                                                <input type="text" class="form-control" name="number" id="recipient-name">
+                                                <input type="text" class="form-control" name="number"
+                                                       id="recipient-name">
                                             </div>
                                             <div class="mb-3">
                                                 <label for="message-text" class="col-form-label">Message:</label>
-                                                <textarea class="form-control" id="message-text" name="massage"></textarea>
+                                                <textarea class="form-control" id="message-text"
+                                                          name="massage"></textarea>
                                             </div>
-                                            <button type="submit" class="btn btn-primary float-right">Send message</button>
+                                            <button type="submit" class="btn btn-primary float-right">Send message
+                                            </button>
                                         </form>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -153,7 +162,7 @@
 {{--modal for contact--}}
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-{{--        @dd($id)--}}
+        {{--        @dd($id)--}}
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id="exampleModalLabel">New message</h1>
@@ -201,7 +210,6 @@
 </div>
 
 
-
 {{--js--}}
 <script>
     @if(session('success'))
@@ -214,11 +222,11 @@
     @endif
 
     @if ($errors->any())
-    var errors=@json($errors->all());
+    var errors =@json($errors->all());
     console.log(errors);
-    var message="";
-    for(let i=0; i<errors.length;i++){
-        message+=errors[i]+"\n";
+    var message = "";
+    for (let i = 0; i < errors.length; i++) {
+        message += errors[i] + "\n";
     }
     Swal.fire({
         icon: 'error',

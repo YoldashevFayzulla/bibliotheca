@@ -23,7 +23,7 @@ Route::get('/', [CategoryController::class,'show'])->name('index');
 
 Route::get('/dashboard', [CategoryController::class,'index'])->middleware(['auth', 'verified'])->name('dashboard');
 Route::get('menu/{category?}',[PostController::class,'show'])->name('category');
-Route::get('searchA',[CategoryController::class,'search']);
+Route::get('searchA',[CategoryController::class,'search'])->name('search');
 Route::get('info/{id}',[ExtraController::class,'info'])->name('info');
 Route::post('store',[ExtraController::class,'store'])->name('contact.store');
 

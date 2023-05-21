@@ -11,6 +11,7 @@ class Post extends Model
     protected $fillable=['name','description','price','image','category_id'];
 
     public function category(){
-        return $this->belongsTo(Category::class,    'category_id','id');
+//        dd('aslom');
+        return $this->belongsTo(Category::class,'category_id','id');
     }
 }

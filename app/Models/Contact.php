@@ -10,8 +10,8 @@ class Contact extends Model
     use HasFactory;
     protected $fillable=['name','number','massage','book_id'];
 
-
     public function post(){
-        return $this->belongsTo(Post::class,    'book_id','id');
+//        dd('salom');
+        return $this->belongsTo(Post::class,'book_id','id');
     }
 }
