@@ -30,51 +30,63 @@
 </head>
 
 <body>
+
+
 <!-- header section start -->
-<div class="header_section">
-    <div class="header_main">
-        <div class="mobile_menu">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="logo_mobile"><a href=""><img src="{{asset('asset/images/logo.png')}}"></a></div>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            </nav>
-        </div>
-        <div class="container-fluid">
-            <div class="logo"><a href="{{route('index')}}"><img src="{{asset('asset/images/logo.png')}}"></a></div>
-            <div class="menu_main">
-                <nav class="navbar">
-                    <div class="container-fluid">
-                        <a class="navbar-brand"></a>
-                        {{--<h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi harum libero nostrum possimus ratione repellat reprehenderit vel voluptas. Aliquid amet consequatur dolorem ipsum libero, officia suscipit. Accusantium, ipsam quo. Quaerat?</h1>--}}
-                    </div>
-                </nav>
-                <ul>
+
+
+<nav class="navbar navbar-expand-lg navbar bg-dark" data-bs-theme="dark">
+    <div class="container-fluid "  >
+        <a class="navbar-brand" href="#">Library web site</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+                aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarScroll">
+            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{{route('index')}}">Home</a>
+                </li>
+                <li class="nav-item">
+{{--                    <a class="nav-link" href="#">Link</a>--}}
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                       aria-expanded="false">
+                        Category
+                    </a>
+                    <ul class="dropdown-menu">
+
+
                     @foreach($categories as $category)
-                        <li class="active"><a href="{{route('category',$category->id)}}">{{$category->name}}</a></li>
-                    @endforeach
-                </ul>
-                <br><br>
-                <tr>
-                    <form class="d-flex float-end   " role="search" type="get" action="{{ url('/searchA') }}">
-                        <input class="me-2" type="search" name= "query" placeholder="Search" aria-label="Search" >
-                        <button class="btn btn-outline-success" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                            </svg></button>
-                    </form>
-                </tr>
-            </div>
+                            <li><a class="dropdown-item" href="{{route('category',$category->id)}}">{{$category->name}}</a></li>
+{{--                            <li class="dropdown-item"><a href=""></a></li>--}}
+                        @endforeach
+                    </ul>
+                </li>
+                <li class="nav-item text-md-center">
+                    <a class="nav-link disabled ">Library</a>
+                </li>
+            </ul>
+            <form class="d-flex float-end" role="search" type="get" action="{{ url('/searchA') }}">
+                <input class="me-2" type="search" name="query" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                         class="bi bi-search" viewBox="0 0 16 16">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                    </svg>
+                </button>
+            </form>
         </div>
     </div>
-</div>
+</nav>
 <!-- header section end -->
-<!-- services section start -->
+
+<!-- resources section start -->
 <div class="services_section layout_padding">
     <div class="container">
-        <h1 class="services_taital"> Kitoblar </h1>
-        <p class="services_text"> Bizda istalgan turdagi istalgan kitobni topishingiz mumkun </p>
+        <h1 class="services_taital"> Books </h1>
+        <p class="services_text"> You can find all kind of book with us </p>
         <div class="services_section_2">
             <div class="row">
                 @if(!empty($posts))
@@ -193,21 +205,21 @@
     </div>
 </div>
 
-<!-- footer section start footer -->
-<div class="footer_section layout_padding">
-    <div class="container">
-        <div class="social_icon">
-            <ul>
-                <li><a type="button" class="m-2" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                       data-bs-whatever="@mdo"><i class="fab fa-envelope"></i></a></li>
-                {{--                <li><i class="fab fa-envelope"></i></li>--}}
-                <li><a type="button" href="https://t.me/Fayzulla Yoldashev"><i class="fab fa-telegram"></i></a></li>
-                <li><a type="button" href="https://www.instagram.com/fayzullayoldashev/"><i
-                                class="fab fa-instagram"></i></a></li>
-            </ul>
-        </div>
-    </div>
-</div>
+{{--<!-- footer section start footer -->--}}
+{{--<div class="footer_section layout_padding">--}}
+{{--    <div class="container">--}}
+{{--        <div class="social_icon">--}}
+{{--            <ul>--}}
+{{--                <li><a type="button" class="m-2" data-bs-toggle="modal" data-bs-target="#exampleModal"--}}
+{{--                       data-bs-whatever="@mdo"><i class="fab fa-envelope"></i></a></li>--}}
+{{--                --}}{{--                <li><i class="fab fa-envelope"></i></li>--}}
+{{--                <li><a type="button" href="https://t.me/Fayzulla Yoldashev"><i class="fab fa-telegram"></i></a></li>--}}
+{{--                <li><a type="button" href="https://www.instagram.com/fayzullayoldashev/"><i--}}
+{{--                                class="fab fa-instagram"></i></a></li>--}}
+{{--            </ul>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--</div>--}}
 
 
 {{--js--}}
