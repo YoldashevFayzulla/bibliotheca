@@ -37,7 +37,7 @@
 
 <nav class="navbar navbar-expand-lg navbar bg-dark" data-bs-theme="dark">
     <div class="container-fluid "  >
-        <a class="navbar-brand" href="#">Library web site</a>
+        <h1 class="navbar-brand">Library web site</h1>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
                 aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -65,7 +65,7 @@
                     </ul>
                 </li>
                 <li class="nav-item text-md-center">
-                    <a class="nav-link disabled ">Library</a>
+                    <h1 class="nav-link disabled ">Library</h1>
                 </li>
             </ul>
             <form class="d-flex float-end" role="search" type="get" action="{{ url('/searchA') }}">
