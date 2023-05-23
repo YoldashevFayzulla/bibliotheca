@@ -8,8 +8,9 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-DARK">
-                    <h1 class="text-white">Create Post</h1>
-
+                    <center>
+                    <h1 class="text-white">edit Post</h1>
+                    </center>
                     @if ($errors->any())
                         <div class="alert alert-danger">
                             <ul>
