@@ -35,7 +35,7 @@
                         <th>{{$contact->massage}}</th>
                         <th>{{$contact->post->name}}</th>
                         <th>
-                            <form action="{{route('contact.delete',$contact->id)}}" method="post">
+                            <form action="{{route('contact.delete',$contact->id)}}" method="post" onsubmit="return confirm('o`chirishni xoxlaysizmi');">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger m-1">
