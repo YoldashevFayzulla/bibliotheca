@@ -97,7 +97,7 @@
                             <div class="btn_main">
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                         data-bs-target="#exampleModalCenter{{$post->id}}">
-                                    Launch demo modal
+                                    information
                                 </button>
                             </div>
                         </div>
