@@ -3,3 +3,8 @@
 3)create in your database "library"  {{.env}}
 4)php artisan migrate
 
+
+sayt xaqida malumot sayt {
+beckend  bilan yozilgan
+saytda kitobga zakaz berish mumkun
+}

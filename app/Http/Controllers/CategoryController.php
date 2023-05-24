@@ -75,8 +75,8 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         $category->delete();
-        $post=Post::find($category->category_id);
-        $post->delete();
+//        $post=Post::find($category->category_id);
+//        $post->delete();
         return redirect()->back()->with('session','muofaqiyatliy o`cirildi');
     }
 
