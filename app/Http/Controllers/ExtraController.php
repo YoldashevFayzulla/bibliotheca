@@ -14,15 +14,36 @@ class ExtraController extends Controller
         return view('show',compact('id'));
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
+//        dd($request);
+        $request->validate([
+            'name' => 'required|string',
+            'number' => 'required|regex:/^\d{9}$/',
+            'massage' => 'required'
+        ], [
+            'name' => "ismingizni kiriting",
+            'number' => "telefon nomeringiz toliq kiritilishi kerak",
+            'massage' => "xabar toldirilgan bolishi kerak"
+        ]);
+
+        Contact::create([
+            'name' => $request->name,
+            'number' => $request->number,
+            'massage' => $request->massage,
+            'book_id' => $request->id,
+        ]);
+        return redirect()->back()->with('success', 'success');
+    }
+    public function stores(Request $request){
 //        dd($request);
         $request->validate([
             'name'=>'required|string',
-            'number'=>'required|numeric|digits:10',
+            'number'=>'required|regex:/^\d{9}$/',
             'massage'=>'required'
         ],[
             'name'=>"ismingizni kiriting",
-            'number'=>"9 xonali son bolishi kerak",
+            'number'=>"telefon nomeringiz toliq kiritilishi kerak",
             'massage'=>"xabar toldirilgan bolishi kerak"
         ]);
 
@@ -30,8 +51,6 @@ class ExtraController extends Controller
             'name'=>$request->name,
             'number'=>$request->number,
             'massage'=>$request->massage,
-            'book_id'=>$request->id,
-
         ]);
         return redirect()->back()->with('success','success');
     }

@@ -141,7 +141,6 @@
                                                 <input type="hidden" value="{{$post->id}}" name="id">
                                                 <label for="recipient-name" class="col-form-label">Full Name:</label>
                                                 <input type="text" class="form-control" name="name" id="recipient-name">
-
                                             </div>
                                             <div class="mb-3">
                                                 <label for="recipient-name" class="col-form-label">Number:</label>
@@ -174,14 +173,13 @@
 {{--modal for contact--}}
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        {{--        @dd($id)--}}
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id="exampleModalLabel">New message</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="{{route('contact.store')}}" method="post">
+                <form action="{{route('contact.stores')}}" method="post">
                     @csrf
                     <div class="mb-3">
                         <label for="recipient-name" class="col-form-label">Full Name:</label>
