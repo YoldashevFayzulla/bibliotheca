@@ -8,3 +8,8 @@ sayt xaqida malumot sayt {
 beckend  bilan yozilgan
 saytda kitobga zakaz berish mumkun
 }
+
+sayt xaqida malumot sayt {
+beckend  bilan yozilgan
+saytda kitobga zakaz berish mumkun
+}
