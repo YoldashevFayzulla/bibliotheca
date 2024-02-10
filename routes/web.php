@@ -16,9 +16,6 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-//qwerty
-
 Route::get('/', [CategoryController::class,'show'])->name('index');
 
 Route::get('/dashboard', [CategoryController::class,'index'])->middleware(['auth', 'verified'])->name('dashboard');

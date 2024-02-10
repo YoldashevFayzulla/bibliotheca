@@ -39,7 +39,7 @@ class PostController extends Controller
             'description'=>'string|required',
             'price'=>'required|max:10',
             'category_id'=>'required|max:10',
-//            'image'=>'image|required',
+            'image'=>'image|required',
         ]);
         $post=new Post();
 //        dd($request);
@@ -109,7 +109,7 @@ class PostController extends Controller
             $file->move(public_path('image'),$filename);
             $post['name']=$request->name;
             $post['description']=$request->description;
-            
+
             $post['price']=$request->price;
             $post['category_id']=$request->category_id;
             $post['image']=$filename;

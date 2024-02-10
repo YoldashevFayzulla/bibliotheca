@@ -9,7 +9,6 @@
             <div class="dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-DARK">
                     <h1 class="text-white">Create Post</h1>
-
                     @if ($errors->any())
                         <div class="alert alert-danger">
                             <ul>

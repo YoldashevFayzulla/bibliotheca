@@ -25,7 +25,7 @@
     {{--icons--}}
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    
+
 
 </head>
 <body>
@@ -89,7 +89,9 @@
                     @foreach($posts as $post)
                         <div class="col-md-4">
                             <div><img src="/image/{{$post->image}}" class="services_img"></div>
+                           <center>
                             <h2>{{$post->name}}</h2>
+                           </center>
                             <div class="btn_main">
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                         data-bs-target="#exampleModalCenter{{$post->id}}">
