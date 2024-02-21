@@ -26,7 +26,6 @@ Route::get('menu/{category?}',[PostController::class,'show'])->name('category');
 Route::get('searchA',[CategoryController::class,'search'])->name('search');
 Route::get('info/{id}',[ExtraController::class,'info'])->name('info');
 Route::post('store',[ExtraController::class,'store'])->name('contact.store');
-Route::post('stores',[ExtraController::class,'stores'])->name('contact.stores');
 
 Route::middleware('auth')->group(function (){
     Route::resource('category',CategoryController::class);

@@ -37,7 +37,7 @@
 
 <nav class="navbar navbar-expand-lg navbar bg-dark" data-bs-theme="dark">
     <div class="container-fluid "  >
-        <h1 class="navbar-brand">Library web site</h1>
+        <a class="navbar-brand" href="#">Library web site</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
                 aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -65,7 +65,7 @@
                     </ul>
                 </li>
                 <li class="nav-item text-md-center">
-                    <h1 class="nav-link disabled ">Library</h1>
+                    <a class="nav-link disabled ">Library</a>
                 </li>
             </ul>
             <form class="d-flex float-end" role="search" type="get" action="{{ url('/searchA') }}">
@@ -97,7 +97,7 @@
                             <div class="btn_main">
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                         data-bs-target="#exampleModalCenter{{$post->id}}">
-                                    information
+                                    Launch demo modal
                                 </button>
                             </div>
                         </div>
@@ -141,6 +141,7 @@
                                                 <input type="hidden" value="{{$post->id}}" name="id">
                                                 <label for="recipient-name" class="col-form-label">Full Name:</label>
                                                 <input type="text" class="form-control" name="name" id="recipient-name">
+
                                             </div>
                                             <div class="mb-3">
                                                 <label for="recipient-name" class="col-form-label">Number:</label>
@@ -173,13 +174,14 @@
 {{--modal for contact--}}
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
+        {{--        @dd($id)--}}
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id="exampleModalLabel">New message</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="{{route('contact.stores')}}" method="post">
+                <form action="{{route('contact.store')}}" method="post">
                     @csrf
                     <div class="mb-3">
                         <label for="recipient-name" class="col-form-label">Full Name:</label>

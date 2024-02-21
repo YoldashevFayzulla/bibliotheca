@@ -33,11 +33,7 @@
                         <th>{{$contact->name}}</th>
                         <th>{{$contact->number}}</th>
                         <th>{{$contact->massage}}</th>
-                        @if($contact->post == true)
                         <th>{{$contact->post->name}}</th>
-                        @else
-                            <th>null</th>
-                        @endif
                         <th>
                             <form action="{{route('contact.delete',$contact->id)}}" method="post" onsubmit="return confirm('o`chirishni xoxlaysizmi');">
                                 @csrf
