@@ -109,7 +109,6 @@ class PostController extends Controller
             $file->move(public_path('image'),$filename);
             $post['name']=$request->name;
             $post['description']=$request->description;
-            
             $post['price']=$request->price;
             $post['category_id']=$request->category_id;
             $post['image']=$filename;

@@ -21,19 +21,21 @@
     <!-- style css -->
     <link rel="stylesheet" type="text/css" href="{{asset('asset/css/style.css')}}">
     {{-- js --}}
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     {{--icons--}}
+    {{--     <link href="http://amusoft.uz/assets/img/favicon.ico" rel="icon">--}}
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    
-
+    {{--    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">--}}
 </head>
+
 <body>
 
 
 <!-- header section start -->
 
-<nav class="navbar navbar-expand-lg navbar bg-dark" data-bs-theme="dark" id="Menu">
+
+<nav class="navbar navbar-expand-lg navbar bg-dark" data-bs-theme="dark">
     <div class="container-fluid "  >
         <h1 class="navbar-brand">Library web site</h1>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
@@ -48,12 +50,14 @@
                 <li class="nav-item">
 {{--                    <a class="nav-link" href="#">Link</a>--}}
                 </li>
-                <li class="nav-item dropdown" >
+                <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                        aria-expanded="false">
                         Category
                     </a>
                     <ul class="dropdown-menu">
+
+
                     @foreach($categories as $category)
                             <li><a class="dropdown-item" href="{{route('category',$category->id)}}">{{$category->name}}</a></li>
 {{--                            <li class="dropdown-item"><a href=""></a></li>--}}
@@ -64,7 +68,7 @@
                     <h1 class="nav-link disabled ">Library</h1>
                 </li>
             </ul>
-            <form class="d-flex float-end" id="myInput" role="search" type="get" action="{{ url('/searchA') }}">
+            <form class="d-flex float-end" role="search" type="get" action="{{ url('/searchA') }}">
                 <input class="me-2 bg-white text-dark" type="search" name="query" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success bg-white" type="submit">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill=""
@@ -81,7 +85,7 @@
 <!-- resources section start -->
 <div class="services_section layout_padding">
     <div class="container">
-        <h2 class="services_taital"> Books </h2>
+        <h1 class="services_taital"> Books </h1>
         <p class="services_text"> You can find all kind of book with us </p>
         <div class="services_section_2">
             <div class="row">
@@ -105,7 +109,7 @@
                                     <div class="modal-header">
                                         <div><img src="/image/{{$post->image}}" class="services_img"></div>
                                     </div>
-                                    <div class="modal-body" id="myTable">
+                                    <div class="modal-body">
                                         <h2>{{$post->name}}</h2>
                                         <p>{{$post->description}}</p>
                                     </div>

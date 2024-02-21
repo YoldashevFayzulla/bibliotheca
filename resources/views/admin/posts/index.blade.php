@@ -1,22 +1,17 @@
 <x-app-layout>
-
     <x-slot name="header">
-
         <h2 class="font-semibold text-xl text-gray-1800 dark:text-gray-200 leading-tight">
             {{ __('Admin') }}
         </h2>
         <nav class="navbar">
             <div class="container-fluid">
                 <a class="navbar-brand"></a>
-{{--                <form class="d-flex" role="search" type="get" action="{{ url('/search') }}">--}}
-{{--                    <input class="form-control me-2" type="search" name= "query" id="myInput" placeholder="Search" aria-label="Search" >--}}
-{{--                    <button class="btn btn-outline-success" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">--}}
-{{--                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>--}}
-{{--                        </svg></button>--}}
-{{--                    --}}
-{{--                </form>--}}
-
-                <input id="myInput" type="text" placeholder="Search..">
+                <form class="d-flex" role="search" type="get" action="{{ url('/search') }}">
+                    <input class="form-control me-2" type="search" name= "query" placeholder="Search" aria-label="Search" >
+                    <button class="btn btn-outline-success" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                        </svg></button>
+                </form>
             </div>
         </nav>
     </x-slot>
@@ -37,7 +32,6 @@
                             <th>photo</th>
                             <th>action</th>
                         </tr>
-                        <tbady id="myTable">
                         @foreach($posts as $post)
                             <tr>
                                 <td>{{$loop->index+1}}</td>
@@ -62,7 +56,7 @@
                                 </td>
                             </tr>
                         @endforeach
-                        </tbady>
+
                     </table>
                     {{$posts->onEachside(1)->links()}}
                 </div>
@@ -72,7 +66,6 @@
 
         </div>
     </div>
-
     <script>
         @if(session('success'))
         Swal.fire({
@@ -82,30 +75,21 @@
             timer: 2000
         })
         @endif
-        // function delete_button(id) {
-        //     Swal.fire({
-        //         title: 'o`chirish?',
-        //         text: "o`chirilgan narsa qayta tiklanmaydi",
-        //         icon: 'warning',
-        //         showCancelButton: true,
-        //         confirmButtonColor: '#3085d6',
-        //         cancelButtonColor: '#d33',
-        //         confirmButtonText: 'Xa o`chirilsin!'
-        //     }).then((result) => {
-        //             if (result.isConfirmed) {
-        //                 document.getElementById('form-delete'+id).submit();
-        //             }
-        //         }
-        //     )
-        // }
-        //
-        $(document).ready(function(){
-            $("#myInput").on("keyup", function() {
-                var value = $(this).val().toLowerCase();
-                $("#myTable tr").filter(function() {
-                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                });
-            });
-        });
+        function delete_button(id) {
+            Swal.fire({
+                title: 'o`chirish?',
+                text: "o`chirilgan narsa qayta tiklanmaydi",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Xa o`chirilsin!'
+            }).then((result) => {
+                    if (result.isConfirmed) {
+                        document.getElementById('form-delete'+id).submit();
+                    }
+                }
+            )
+        }
     </script>
 </x-app-layout>
